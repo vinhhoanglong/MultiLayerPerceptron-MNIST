@@ -1,6 +1,6 @@
 # MultiLayerPerceptron-MNIST
 
-## Usage
+## Usage without docker
 
 ### Create virtual environment
 ```bash
@@ -23,3 +23,12 @@ venv/bin/python Test.py --model_path <model_path> (default: model/mlp_20241006_2
 ```
 
 
+## Usage using docker
+this docker file is for model training step. You should modify it for testing step.
+
+```bash
+docker build -t mlp_docker_image .
+```
+```bash
+docker run -it --rm mlp_docker_image
+```

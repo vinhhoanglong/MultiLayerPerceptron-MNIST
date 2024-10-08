@@ -15,11 +15,11 @@ venv/bin/pip install -r requirements.txt
 
 ### Train
 ```bash
-venv/bin/python Train.py --num_epochs <num_epochs> (default: 5)
+venv/bin/python Train.py --num_epochs <num_epochs> --learning_rate <learning_rate> 
 ```
 ### Test
 ```bash
-venv/bin/python Test.py --model_path <model_path> (default: model/mlp_20241006_220807.save)
+venv/bin/python Test.py --model_path <model_path> 
 ```
 
 

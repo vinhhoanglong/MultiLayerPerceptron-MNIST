@@ -9,7 +9,8 @@ import datetime
 
 model = MLP()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+
 
 
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])       
@@ -33,6 +34,8 @@ def main(model, trainloader, criterion, optimizer, num_epochs):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_epochs', type=int, default=5)
+    parser.add_argument('--learning_rate', type=float, default=0.01)
     args = parser.parse_args()
+    optimizer = optim.SGD(model.parameters(), lr = args.learning_rate)
     main(model, trainloader, criterion, optimizer, args.num_epochs)
 

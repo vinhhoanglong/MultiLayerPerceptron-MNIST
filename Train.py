@@ -22,6 +22,7 @@ def main(model, trainloader, criterion, optimizer, num_epochs):
     for epoch in range(num_epochs):
         model.train()
         for i, (images, labels) in enumerate(trainloader):
+            images, labels = images.to(device), labels.to(device) 
             optimizer.zero_grad()
             outputs = model(images)
             loss = criterion(outputs, labels)

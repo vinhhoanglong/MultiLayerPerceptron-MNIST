@@ -13,7 +13,7 @@ testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True
 testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False)
 
 def main(testloader, model_path):
-    model = MLP()
+    model = MLP().to(device)
     model.load_state_dict(torch.load(model_path))
     model.eval()
     correct = 0

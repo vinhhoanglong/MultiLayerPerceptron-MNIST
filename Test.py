@@ -20,6 +20,7 @@ def main(testloader, model_path):
     total = 0
     with torch.no_grad():
         for images, labels in testloader:
+            images, labels = images.to(device), labels.to(device) 
             outputs = model(images)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)

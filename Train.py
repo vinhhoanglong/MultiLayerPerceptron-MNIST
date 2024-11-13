@@ -7,11 +7,11 @@ import torch
 import argparse
 import datetime
 
-model = MLP()
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+model = MLP().to(device) 
 criterion = nn.CrossEntropyLoss()
-
-
-
 
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])       
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
